@@ -76,6 +76,9 @@ constructor()
 function constructor(){
     interface()
     navBar()
+    navFunction()
+    notch()
+    notchFunction()
 }
 
 
@@ -93,7 +96,7 @@ function interface(){
 }
 
 function navBar(){   
-     make("ul").from("navlist").injectTo("#Nav").content("").create()
+    make("ul").from("navlist").injectTo("#Nav").content("").create()
     for(i = 0; i < value.book; i++){
         make("li").from(value.pages[i]).injectTo("#navlist").content(value.pages[i]).create()
         id(value.pages[i]).AddClass("navItem")
@@ -101,4 +104,63 @@ function navBar(){
             id(value.pages[i]).AddClass("pageLight")
         }
     }
+}
+
+function navFunction(){
+    for(i = 0; i < value.book; i++){
+        let ring = document.getElementById(value.pages[i])    
+        if (ring) {
+            (function(i) {
+                ring.addEventListener('click', () =>{
+                    document.title = value.pages[i]
+                    for(b = 0; b < value.book; b++){
+                        if (value.pages[b] == value.pages[i]) {
+                            id(value.pages[b]).ToggleClass("pageLight")    
+                        }
+                        else{
+                            id(value.pages[b]).RemoveClass("pageLight")    
+                        }
+                        const nav = document.getElementById("navlist");
+                        if (nav.style.right === "0px") {
+                            nav.style.right = "-1000px";
+                            
+                          } else {
+                            nav.style.right = "0px";                        
+                          } 
+                          id("touch").ToggleClass("change")   
+                        
+                    }                    
+                });
+            })(i);
+        }
+    }
+    
+}
+
+function notch(){
+    make("div").from("touch").injectTo("#Nav").content("").create()
+    id("touch").AddClass("container")
+    for(a = 0; a < 3; a++){
+        make("div").from("bar" + a).injectTo("#touch").content("").create()
+        id("bar" + a).AddClass("bar" + (a+1))        
+    }
+    
+}
+
+function notchFunction(){
+    let notch = document.getElementById("touch")
+    if (notch) {
+        notch.addEventListener('click', ()=>{
+            id("touch").ToggleClass("change")   
+            const nav = document.getElementById("navlist");
+            if (nav.style.right === "0px") {
+                nav.style.right = "-1000px";
+                
+              } else {
+                nav.style.right = "0px";                        
+              } 
+        })
+         
+    }
+    
 }
