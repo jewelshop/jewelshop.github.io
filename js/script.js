@@ -117,7 +117,14 @@ function navFunction(){
                     document.title = value.pages[i]
                     for(b = 0; b < value.book; b++){
                         if (value.pages[b] == value.pages[i]) {
-                            id(value.pages[b]).ToggleClass("pageLight")    
+                            let element = document.getElementById(value.pages[i]);
+                            let classExists = element.classList.contains("pageLight");
+                            if(classExists) {
+                                
+                            } else {
+                                id(value.pages[b]).ToggleClass("pageLight")    
+                            }
+                            
                         }
                         else{
                             id(value.pages[b]).RemoveClass("pageLight")    
