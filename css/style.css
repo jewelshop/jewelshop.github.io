@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#header{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+#layerA000{
+    padding: 10px;
+    display: flex;
+}
+
+#logo{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 90px;
+    padding: 5px;
+}
+
+#headText{
+    color: wheat;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+}
+
+#Nav{
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#navlist{
+    display: flex;    
+    list-style: none;
+    margin-right: 10px;
+
+}
+
+.navItem{
+    text-decoration: none;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.pageLight{
+    color: yellow;
+}
