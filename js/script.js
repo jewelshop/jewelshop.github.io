@@ -67,7 +67,7 @@ function img(src) {
 
 class uni_vars{
     shopname = "Shop Name"
-    pages = ["Home", "Cart", "Account"]
+    pages = ["Home", "Carts", "Account"]
     book = this.pages.length
     title = document.title
 }
