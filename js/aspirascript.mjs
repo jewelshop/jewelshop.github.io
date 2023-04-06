@@ -65,3 +65,20 @@ export function make(elementType) {
       }
     };
   }
+
+export function checkFileExists(url) {
+  return fetch(url, {
+    method: "HEAD",
+  })
+  .then(response => {
+    if (response.status === 200) {
+      return true;
+    } else {
+      return false;
+    }
+  })
+  .catch(error => {
+    console.error(error);    
+    return false;
+  });
+}

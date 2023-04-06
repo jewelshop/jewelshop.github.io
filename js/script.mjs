@@ -1,4 +1,4 @@
-import { make, id, img } from './aspirascript.mjs'
+import { make, id, img, checkFileExists } from './aspirascript.mjs'
 
 // make("h1").from("greet").injectTo("body").content("Hello World!").create()
 
@@ -48,7 +48,33 @@ function content(){
             make("h1").from("greet_prod").injectTo("#products").content("New Products").create()
 
         make("div").from("box").injectTo("#content").content("").create()
-            make("")
+        // --> Inject the Products here; must be random 20     
+        products()         
+}
+
+function products(){
+    fetch('/../products/data.pl')
+    .then(response => response.text())
+    .then(text => {
+      const lines = text.split('\n');
+      all_inject(lines)
+    })
+    .catch(error => console.error(error));
+}
+
+function all_inject(temp){
+    for(let i = 0; i < temp.length; i++){
+        let datax = temp[i].trim()
+        let j = 0;
+        let bool = true
+        let dir = "/../products/pdl/" + datax + "/" + j + ".jpg"
+
+
+        
+        //fetch("./../products/pdl/" + datax + "/" + j + ".jpg").then(console.log("exist")).catch(() => false)
+
+
+    }
 }
 
 constructor()
