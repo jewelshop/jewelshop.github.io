@@ -1,0 +1,28 @@
+Add
+
+Image Thumbnail:        | Name of the Product:
+Gallery List:           | Description of the Product
+                        | prompt_tag
+                        | Type of the Product
+                        | Price
+                        | 
+                        | Cancel Product | Save Product
+
+Edit
+Image Thumbnail:        | Name of the Product:
+Gallery List:           | Description of the Product
+                        | prompt_tag
+                        | Type of the Product
+                        | Price
+                        | 
+                        | Delete Product | Save Product
+
+
+
+| Search Product |            | Add new Product |
+
+* Product List
+> Product 1             | Edit |
+> Product 2             | Edit |
+
+                            | Deploy Products |

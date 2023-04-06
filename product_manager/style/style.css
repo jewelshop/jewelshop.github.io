@@ -1,0 +1,77 @@
+:root{
+    --background: #282a36;
+    --text_color: #f8f8f2;
+    --acc1: #8be9fd;
+    --acc2: #50fa7b;
+    --acc3: #ffb86c;
+    --acc4: #ff79c6;
+    --acc5: #bd93f9;
+    --acc6: #ff5555;
+    --acc7: #f1fa8c;
+    --neutralA: #44475a;
+    --neutralB: #6272a4;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
+body{
+    background-color: var(--background);
+}
+
+#nav_bar, #bottom_box{
+    background-color: var(--neutralB);    
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: end;
+}
+
+h1{
+    color: var(--text_color);
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+button{
+    background-color: var(--neutralA);
+    color: var(--text_color);
+    padding: 10px;
+}
+
+#listbox{
+    background-color: var(--neutralA);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+#listbox li{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--acc1);
+    margin: 5px;
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    border-radius: 10px;
+    align-items: center;
+    font-weight: bolder;
+}
+
+#boxtent{
+    background-color: var(--acc3);
+    position: fixed;
+    display: flex;
+    height: 700px;
+    width: 1000px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
