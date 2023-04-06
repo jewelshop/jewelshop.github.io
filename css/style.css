@@ -68,7 +68,44 @@ body{
 }
 
 #banner{
-    background-color: var(--accent1);
-    height: 300px;    
+    background-color: var(--accent1);     
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    text-align: center;
+
+}
+#shop_now{
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px solid;
+    background-color: var(--accent4);
+    color: var(--text-color);
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#categories{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    width: fit-content;
+    font-size: 20px;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+#categories li{
+    background-color: var(--accent5);
+    border: 1px solid var(--neutralA);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    width: 100px;
+    text-align: center;
 }

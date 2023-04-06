@@ -9,7 +9,6 @@ function constructor(){
     content()
 }
 
-
 function nav_bar(){
     make("div").from("nav_bar").injectTo("body").content("").create()
         make("div").from("brand").injectTo("#nav_bar").content("").create()
@@ -36,43 +35,20 @@ function content(){
         make("div").from("banner").injectTo("#content").content("").create()
             make("h1").from("greetings").injectTo("#banner").content("Get ready to shop anytime, anywhere").create()
             make("h2").from("greetings_2").injectTo("#banner").content("our online store is now open!").create()
-
+            make("button").from("shop_now").injectTo("#banner").content("Shop Now!").create()
         // categories
-
+        let categories = ["Ring", "Necklace", "Pendant", "Bag", "Earings", "Bracelets", "Keychain"];
+        make("ul").from("categories").injectTo("#content").content("").create()
+        for(let i = 0; i<categories.length; i++){
+            make("li").from("item_" + categories[i]).injectTo("#categories").content(categories[i]).create()
+        }
         // Products
+        make("div").from("products").injectTo("#content").content("").create()
+            // New Product
+            make("h1").from("greet_prod").injectTo("#products").content("New Products").create()
 
-    /**
-     * Product Architecture:
-     * Name of the Product
-     * Thumbnail of the Product
-     * Type of the Product
-     * Ratings
-     * Price
-     */
-
-    /*
-    Type:
-        Necklace
-        Bag
-        Bracelet
-        Earings
-        Rings    
-     */
-
-    /**
-     * Preview:
-     * Name of the product
-     * Thumbnail of the Product
-     * other thumbnails
-     * type of the product
-     * ratings
-     * categories
-     * price
-     * 
-     * buy
-     * add to cart
-     * add to favourite
-     */
+        make("div").from("box").injectTo("#content").content("").create()
+            make("")
 }
 
 constructor()
