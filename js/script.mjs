@@ -1,32 +1,9 @@
-import { make, id, img, checkFileExists } from './aspirascript.mjs'
-
-// make("h1").from("greet").injectTo("body").content("Hello World!").create()
-
-
+import { make, id, img} from './aspirascript.mjs'
+import { nav_module } from './module/nav_bar.js'
 
 function constructor(){
-    nav_bar()
+    nav_module()
     content()
-}
-
-function nav_bar(){
-    make("div").from("nav_bar").injectTo("body").content("").create()
-        make("div").from("brand").injectTo("#nav_bar").content("").create()
-            img("assets/logo/simple.png").id("logo").alt("web logo").to("#brand")
-            make("h2").from("logo_name").injectTo("#brand").content("Glam Trend").create()
-
-        make("div").from("menus").injectTo("#nav_bar").content("").create()
-            // Search Icon
-            make("span").from("search_icon").injectTo("#menus").content("search").create()
-            id("search_icon").AddClass("material-symbols-outlined")  
-
-            // Cart
-            make("span").from("carts").injectTo("#menus").content("shopping_cart").create()
-            id("carts").AddClass("material-symbols-outlined")
-
-            // Account
-            make("span").from("account_menu").injectTo("#menus").content("account_circle").create()
-            id("account_menu").AddClass("material-symbols-outlined")
 }
 
 function content(){
@@ -57,24 +34,66 @@ function products(){
     .then(response => response.text())
     .then(text => {
       const lines = text.split('\n');
-      all_inject(lines)
+      // all_inject(lines)
+      inject_some(lines)
     })
     .catch(error => console.error(error));
 }
 
+//--> For Preview
+function inject_some(temp){
+    for(let i = 0; i < temp.length; i++){
+        let datax = temp[i].trim();
+        let dir = "/../products/pdl/" + datax + "/count.pl";
+        let ls = "/../products/pdl/" + datax  + "/0.jpg";
+    
+        fetch(dir)
+        .then(response => response.text())
+        .then(text => {
+            let lines = text.trim();
+            make("div").from("item" + i).injectTo("#box").content("").create()
+            id("item" + i).AddClass("item")
+            img(ls).id("").alt("product").to("#item" + i)
+
+            // Name of the Product
+            make("h2").from("").injectTo("#item" + i).content("Name of the Product").create()
+            // Ratings
+            make("span").from("star" + i).injectTo("#item" + i).content("star").create()
+            id("star" + i).AddClass("material-symbols-outlined")
+            make("span").from("rate" + i).injectTo("#item" + i).content("5.0 Ratings").create()
+            // Price
+            make("h3").from("price" + i).injectTo("#item" + i).content("$ 1,000.00").create()
+        })
+        .catch(error => console.error(error));        
+    }
+}
+
 function all_inject(temp){
     for(let i = 0; i < temp.length; i++){
-        let datax = temp[i].trim()
-        let j = 0;
-        let bool = true
-        let dir = "/../products/pdl/" + datax + "/" + j + ".jpg"
+        let datax = temp[i].trim();
+        let dir = "/../products/pdl/" + datax + "/count.pl";
+        let ls = "/../products/pdl/" + datax;
+    
+        fetch(dir)
+        .then(response => response.text())
+        .then(text => {
+            let lines = text.trim();
+            
+            for(let j = 0; j < parseInt(lines); j++){
+                
+                
+                
+                //console.log(ls + "/" + j + ".jpg");
+                make("div").from("item" + j).injectTo("#box").content("").create()
+                id("item" + j).AddClass("item")
+                img(ls + "/" + j + ".jpg").id("").alt("product").to("#item" + j)
+                
 
-
-        
-        //fetch("./../products/pdl/" + datax + "/" + j + ".jpg").then(console.log("exist")).catch(() => false)
-
-
+            }
+        })
+        .catch(error => console.error(error));        
     }
+    
 }
 
 constructor()
